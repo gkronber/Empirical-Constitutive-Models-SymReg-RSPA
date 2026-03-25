@@ -1,0 +1,15 @@
+for file in *179*.asc; do mlr --pprint --prepipe "tail -n+4" -N cat --filename $file ; done | mlr --ipprint --ocsv -N cat > combined.csv
+
+for file in *179*.asc; do head -n 1 $file; done > settings.txt
+
+# edit settings.txt manually
+# edit combined.csv manually to add header
+
+mlr --csv --from combined.csv join -f settings.csv -j filename > AA6082_all_temps_combined.csv
+
+
+# get maximum values
+mlr --csv --from AA6082_all_temps_combined.csv stats1 -a max -f kf -g filename
+
+# filter up to maximum
+mlr --csv --from AA6082_all_temps_combined.csv join -f max_temp.csv -j filename then stats1 -a max -f kf_max,kf -g filename -s  then filter '$kf_max < $kf_max_max' then cut -f filename,temp_setpoint,phip,yield,id,time,temp,phi,kf > AA6082_all_temps_combined_tomax.csv
