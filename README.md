@@ -2,6 +2,19 @@ This repository contains data and code used for the paper Kabliman E., Kronberge
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19219218.svg)](https://doi.org/10.5281/zenodo.19219218)
 
+BibTeX entry for citation:
+```bibtex
+@article{Kabliman_Identification_of_empirical_2026,
+  author = {Kabliman, Evgeniya and Kronberger, Gabriel},
+  doi = {10.1098/rsta.2024.0587},
+  journal = {Philosophical Transactions of the Royal Society A},
+  month = may,
+  title = {Identification of empirical constitutive models for age-hardenable aluminium alloy and high-chromium martensitic steel using symbolic regression},
+  volume = {284},
+  year = {2026}
+}
+```
+
 ## Data
 The data used in this paper stems from different publications. If you use the data files please reference the corresponding paper.
 
