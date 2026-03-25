@@ -1,5 +1,7 @@
 This repository contains data and code used for the paper Kabliman E., Kronberger G.: _Identification of Empirical Constitutive Models for Age-Hardenable Aluminium Alloy and High-Chromium Martensitic Steel Using Symbolic Regression_, Special Issue on Symbolic Regression in the Physical Sciences of the Proceedings of the Royal Society, Part A, 2026
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19219218.svg)](https://doi.org/10.5281/zenodo.19219218)
+
 ## Data
 The data used in this paper stems from different publications. If you use the data files please reference the corresponding paper.
 

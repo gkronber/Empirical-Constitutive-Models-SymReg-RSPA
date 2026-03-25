@@ -26,6 +26,7 @@ authors:
     email: gabriel.kronberger@fh-hagenberg.at
 repository-code: >-
   https://github.com/gkronber/Empirical-Constitutive-Models-SymReg-RSPA
+doi: 10.5281/zenodo.19219218
 keywords:
   - constitutive models
   - symbolic regression
