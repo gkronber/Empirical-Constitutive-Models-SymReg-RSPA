@@ -1,4 +1,63 @@
 % GNUPLOT: LaTeX picture with Postscript
+\documentclass{minimal}
+% Set font size
+\makeatletter
+\def\@ptsize{-2}
+\InputIfFileExists{size8.clo}{}{%
+   \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Gnuplot Error: File `size8.clo' not found! Could not set font size%
+   }{See the gnuplot documentation for explanation.%
+   }{For using a font size a file `size<fontsize>.clo' has to exist.
+        Falling back ^^Jto default fontsize 10pt.}%
+  \def\@ptsize{0}
+  \input{size10.clo}%
+}%
+\makeatother
+% Load packages
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{transparent}
+\makeatletter
+% Select an appropriate default driver (from TeXLive graphics.cfg)
+\begingroup
+  \chardef\x=0 %
+  % check pdfTeX
+  \@ifundefined{pdfoutput}{}{%
+    \ifcase\pdfoutput
+    \else
+      \chardef\x=1 %
+    \fi
+  }%
+  % check VTeX
+  \@ifundefined{OpMode}{}{%
+    \chardef\x=2 %
+  }%
+\expandafter\endgroup
+\ifcase\x
+  % default case
+  \PassOptionsToPackage{dvips}{geometry}
+\or
+  % pdfTeX is running in pdf mode
+  \PassOptionsToPackage{pdftex}{geometry}
+\else
+  % VTeX is running
+  \PassOptionsToPackage{vtex}{geometry}
+\fi
+\makeatother
+% Set papersize
+\usepackage[papersize={374.00bp,360.00bp},text={374.00bp,360.00bp}]{geometry}
+% No page numbers and no paragraph indentation
+\pagestyle{empty}
+\setlength{\parindent}{0bp}%
+% Load configuration file
+\InputIfFileExists{gnuplot.cfg}{%
+  \typeout{Using configuration file gnuplot.cfg}%
+}{%
+ \typeout{No configuration file gnuplot.cfg found.}%
+}%
+%
+\begin{document}
 \begingroup
   \makeatletter
   \providecommand\color[2][]{%
@@ -83,120 +142,125 @@
 \begin{picture}(7480.00,7200.00)%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(645,4020){\makebox(0,0)[r]{\strut{}1e-01}}%
+      \put(672,4020){\makebox(0,0)[r]{\strut{}1e-01}}%
       \csname LTb\endcsname%%
-      \put(645,4451){\makebox(0,0)[r]{\strut{}1e+00}}%
+      \put(672,4451){\makebox(0,0)[r]{\strut{}1e+00}}%
       \csname LTb\endcsname%%
-      \put(645,4882){\makebox(0,0)[r]{\strut{}1e+01}}%
+      \put(672,4882){\makebox(0,0)[r]{\strut{}1e+01}}%
       \csname LTb\endcsname%%
-      \put(645,5313){\makebox(0,0)[r]{\strut{}1e+02}}%
+      \put(672,5313){\makebox(0,0)[r]{\strut{}1e+02}}%
       \csname LTb\endcsname%%
-      \put(645,5743){\makebox(0,0)[r]{\strut{}1e+03}}%
+      \put(672,5743){\makebox(0,0)[r]{\strut{}1e+03}}%
       \csname LTb\endcsname%%
-      \put(1311,3781){\makebox(0,0){\strut{}}}%
+      \put(1311,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(1906,3781){\makebox(0,0){\strut{}}}%
+      \put(1906,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(2502,3781){\makebox(0,0){\strut{}}}%
+      \put(2502,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(3097,3781){\makebox(0,0){\strut{}}}%
+      \put(3097,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(3692,3781){\makebox(0,0){\strut{}}}%
+      \put(3692,3846){\makebox(0,0){\strut{}}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(2219,6103){\makebox(0,0){\strut{}AA6082 (full curve)}}%
+      \put(164,4882){\rotatebox{-270.00}{\makebox(0,0){\strut{}CV score}}}%
+      \csname LTb\endcsname%%
+      \put(2219,6005){\makebox(0,0){\strut{}AA6082 (full curve)}}%
     }%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(4338,4020){\makebox(0,0)[r]{\strut{}1e-01}}%
+      \put(4365,4020){\makebox(0,0)[r]{\strut{}1e-01}}%
       \csname LTb\endcsname%%
-      \put(4338,4451){\makebox(0,0)[r]{\strut{}1e+00}}%
+      \put(4365,4451){\makebox(0,0)[r]{\strut{}1e+00}}%
       \csname LTb\endcsname%%
-      \put(4338,4882){\makebox(0,0)[r]{\strut{}1e+01}}%
+      \put(4365,4882){\makebox(0,0)[r]{\strut{}1e+01}}%
       \csname LTb\endcsname%%
-      \put(4338,5313){\makebox(0,0)[r]{\strut{}1e+02}}%
+      \put(4365,5313){\makebox(0,0)[r]{\strut{}1e+02}}%
       \csname LTb\endcsname%%
-      \put(4338,5743){\makebox(0,0)[r]{\strut{}1e+03}}%
+      \put(4365,5743){\makebox(0,0)[r]{\strut{}1e+03}}%
       \csname LTb\endcsname%%
-      \put(5004,3781){\makebox(0,0){\strut{}}}%
+      \put(5004,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(5599,3781){\makebox(0,0){\strut{}}}%
+      \put(5599,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(6194,3781){\makebox(0,0){\strut{}}}%
+      \put(6194,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(6790,3781){\makebox(0,0){\strut{}}}%
+      \put(6790,3846){\makebox(0,0){\strut{}}}%
       \csname LTb\endcsname%%
-      \put(7385,3781){\makebox(0,0){\strut{}}}%
+      \put(7385,3846){\makebox(0,0){\strut{}}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(5912,6103){\makebox(0,0){\strut{}AA6082 (to maximum)}}%
+      \put(5912,6005){\makebox(0,0){\strut{}AA6082 (to maximum)}}%
     }%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(645,1579){\makebox(0,0)[r]{\strut{}1e+02}}%
+      \put(672,1579){\makebox(0,0)[r]{\strut{}1e+02}}%
       \csname LTb\endcsname%%
-      \put(645,2010){\makebox(0,0)[r]{\strut{}1e+03}}%
+      \put(672,2010){\makebox(0,0)[r]{\strut{}1e+03}}%
       \csname LTb\endcsname%%
-      \put(645,2441){\makebox(0,0)[r]{\strut{}1e+04}}%
+      \put(672,2441){\makebox(0,0)[r]{\strut{}1e+04}}%
       \csname LTb\endcsname%%
-      \put(645,2871){\makebox(0,0)[r]{\strut{}1e+05}}%
+      \put(672,2871){\makebox(0,0)[r]{\strut{}1e+05}}%
       \csname LTb\endcsname%%
-      \put(645,3302){\makebox(0,0)[r]{\strut{}1e+06}}%
+      \put(672,3302){\makebox(0,0)[r]{\strut{}1e+06}}%
       \csname LTb\endcsname%%
-      \put(1311,1339){\makebox(0,0){\strut{}20}}%
+      \put(1311,1405){\makebox(0,0){\strut{}20}}%
       \csname LTb\endcsname%%
-      \put(1906,1339){\makebox(0,0){\strut{}40}}%
+      \put(1906,1405){\makebox(0,0){\strut{}40}}%
       \csname LTb\endcsname%%
-      \put(2502,1339){\makebox(0,0){\strut{}60}}%
+      \put(2502,1405){\makebox(0,0){\strut{}60}}%
       \csname LTb\endcsname%%
-      \put(3097,1339){\makebox(0,0){\strut{}80}}%
+      \put(3097,1405){\makebox(0,0){\strut{}80}}%
       \csname LTb\endcsname%%
-      \put(3692,1339){\makebox(0,0){\strut{}100}}%
+      \put(3692,1405){\makebox(0,0){\strut{}100}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(2219,980){\makebox(0,0){\strut{}Expression length}}%
+      \put(164,2441){\rotatebox{-270.00}{\makebox(0,0){\strut{}CV Score}}}%
       \csname LTb\endcsname%%
-      \put(2219,3662){\makebox(0,0){\strut{}X20CrMoV12 (full curve)}}%
+      \put(2219,1143){\makebox(0,0){\strut{}Expression length}}%
+      \csname LTb\endcsname%%
+      \put(2219,3564){\makebox(0,0){\strut{}X20CrMoV12 (full curve)}}%
     }%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(4338,1579){\makebox(0,0)[r]{\strut{}1e+02}}%
+      \put(4365,1579){\makebox(0,0)[r]{\strut{}1e+02}}%
       \csname LTb\endcsname%%
-      \put(4338,1825){\makebox(0,0)[r]{\strut{}1e+03}}%
+      \put(4365,1825){\makebox(0,0)[r]{\strut{}1e+03}}%
       \csname LTb\endcsname%%
-      \put(4338,2071){\makebox(0,0)[r]{\strut{}1e+04}}%
+      \put(4365,2071){\makebox(0,0)[r]{\strut{}1e+04}}%
       \csname LTb\endcsname%%
-      \put(4338,2318){\makebox(0,0)[r]{\strut{}1e+05}}%
+      \put(4365,2318){\makebox(0,0)[r]{\strut{}1e+05}}%
       \csname LTb\endcsname%%
-      \put(4338,2564){\makebox(0,0)[r]{\strut{}1e+06}}%
+      \put(4365,2564){\makebox(0,0)[r]{\strut{}1e+06}}%
       \csname LTb\endcsname%%
-      \put(4338,2810){\makebox(0,0)[r]{\strut{}1e+07}}%
+      \put(4365,2810){\makebox(0,0)[r]{\strut{}1e+07}}%
       \csname LTb\endcsname%%
-      \put(4338,3056){\makebox(0,0)[r]{\strut{}1e+08}}%
+      \put(4365,3056){\makebox(0,0)[r]{\strut{}1e+08}}%
       \csname LTb\endcsname%%
-      \put(4338,3302){\makebox(0,0)[r]{\strut{}1e+09}}%
+      \put(4365,3302){\makebox(0,0)[r]{\strut{}1e+09}}%
       \csname LTb\endcsname%%
-      \put(5004,1339){\makebox(0,0){\strut{}20}}%
+      \put(5004,1405){\makebox(0,0){\strut{}20}}%
       \csname LTb\endcsname%%
-      \put(5599,1339){\makebox(0,0){\strut{}40}}%
+      \put(5599,1405){\makebox(0,0){\strut{}40}}%
       \csname LTb\endcsname%%
-      \put(6194,1339){\makebox(0,0){\strut{}60}}%
+      \put(6194,1405){\makebox(0,0){\strut{}60}}%
       \csname LTb\endcsname%%
-      \put(6790,1339){\makebox(0,0){\strut{}80}}%
+      \put(6790,1405){\makebox(0,0){\strut{}80}}%
       \csname LTb\endcsname%%
-      \put(7385,1339){\makebox(0,0){\strut{}100}}%
+      \put(7385,1405){\makebox(0,0){\strut{}100}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(5912,980){\makebox(0,0){\strut{}Expression length}}%
+      \put(5912,1143){\makebox(0,0){\strut{}Expression length}}%
       \csname LTb\endcsname%%
-      \put(5912,3662){\makebox(0,0){\strut{}X20CrMoV12 (to maximum)}}%
+      \put(5912,3564){\makebox(0,0){\strut{}X20CrMoV12 (to maximum)}}%
     }%
     \gplbacktext
-    \put(0,0){\includegraphics[width={374.00bp},height={360.00bp}]{pareto_fronts_all}}%
+    \put(0,0){\includegraphics[width={374.00bp},height={360.00bp}]{pareto_fronts_all-inc}}%
     \gplfronttext
   \end{picture}%
 \endgroup
+\end{document}

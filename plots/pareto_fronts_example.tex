@@ -1,4 +1,63 @@
 % GNUPLOT: LaTeX picture with Postscript
+\documentclass{minimal}
+% Set font size
+\makeatletter
+\def\@ptsize{-2}
+\InputIfFileExists{size8.clo}{}{%
+   \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Gnuplot Error: File `size8.clo' not found! Could not set font size%
+   }{See the gnuplot documentation for explanation.%
+   }{For using a font size a file `size<fontsize>.clo' has to exist.
+        Falling back ^^Jto default fontsize 10pt.}%
+  \def\@ptsize{0}
+  \input{size10.clo}%
+}%
+\makeatother
+% Load packages
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{transparent}
+\makeatletter
+% Select an appropriate default driver (from TeXLive graphics.cfg)
+\begingroup
+  \chardef\x=0 %
+  % check pdfTeX
+  \@ifundefined{pdfoutput}{}{%
+    \ifcase\pdfoutput
+    \else
+      \chardef\x=1 %
+    \fi
+  }%
+  % check VTeX
+  \@ifundefined{OpMode}{}{%
+    \chardef\x=2 %
+  }%
+\expandafter\endgroup
+\ifcase\x
+  % default case
+  \PassOptionsToPackage{dvips}{geometry}
+\or
+  % pdfTeX is running in pdf mode
+  \PassOptionsToPackage{pdftex}{geometry}
+\else
+  % VTeX is running
+  \PassOptionsToPackage{vtex}{geometry}
+\fi
+\makeatother
+% Set papersize
+\usepackage[papersize={374.00bp,180.00bp},text={374.00bp,180.00bp}]{geometry}
+% No page numbers and no paragraph indentation
+\pagestyle{empty}
+\setlength{\parindent}{0bp}%
+% Load configuration file
+\InputIfFileExists{gnuplot.cfg}{%
+  \typeout{Using configuration file gnuplot.cfg}%
+}{%
+ \typeout{No configuration file gnuplot.cfg found.}%
+}%
+%
+\begin{document}
 \begingroup
   \makeatletter
   \providecommand\color[2][]{%
@@ -80,49 +139,50 @@
     \setlength{\fboxrule}{0.5pt}%
     \setlength{\fboxsep}{1pt}%
     \definecolor{tbcol}{rgb}{1,1,1}%
-\begin{picture}(5460.00,3600.00)%
+\begin{picture}(7480.00,3600.00)%
     \gplgaddtomacro\gplbacktext{%
       \csname LTb\endcsname%%
-      \put(793,767){\makebox(0,0)[r]{\strut{}0}}%
+      \put(576,557){\makebox(0,0)[r]{\strut{}0}}%
       \csname LTb\endcsname%%
-      \put(793,1290){\makebox(0,0)[r]{\strut{}1}}%
+      \put(576,1182){\makebox(0,0)[r]{\strut{}1}}%
       \csname LTb\endcsname%%
-      \put(793,1813){\makebox(0,0)[r]{\strut{}10}}%
+      \put(576,1807){\makebox(0,0)[r]{\strut{}10}}%
       \csname LTb\endcsname%%
-      \put(793,2337){\makebox(0,0)[r]{\strut{}100}}%
+      \put(576,2432){\makebox(0,0)[r]{\strut{}100}}%
       \csname LTb\endcsname%%
-      \put(793,2860){\makebox(0,0)[r]{\strut{}1000}}%
+      \put(576,3057){\makebox(0,0)[r]{\strut{}1000}}%
       \csname LTb\endcsname%%
-      \put(1280,527){\makebox(0,0){\strut{}$10$}}%
+      \put(1249,383){\makebox(0,0){\strut{}$10$}}%
       \csname LTb\endcsname%%
-      \put(1708,527){\makebox(0,0){\strut{}$20$}}%
+      \put(1914,383){\makebox(0,0){\strut{}$20$}}%
       \csname LTb\endcsname%%
-      \put(2137,527){\makebox(0,0){\strut{}$30$}}%
+      \put(2580,383){\makebox(0,0){\strut{}$30$}}%
       \csname LTb\endcsname%%
-      \put(2565,527){\makebox(0,0){\strut{}$40$}}%
+      \put(3246,383){\makebox(0,0){\strut{}$40$}}%
       \csname LTb\endcsname%%
-      \put(2994,527){\makebox(0,0){\strut{}$50$}}%
+      \put(3911,383){\makebox(0,0){\strut{}$50$}}%
       \csname LTb\endcsname%%
-      \put(3423,527){\makebox(0,0){\strut{}$60$}}%
+      \put(4577,383){\makebox(0,0){\strut{}$60$}}%
       \csname LTb\endcsname%%
-      \put(3851,527){\makebox(0,0){\strut{}$70$}}%
+      \put(5243,383){\makebox(0,0){\strut{}$70$}}%
       \csname LTb\endcsname%%
-      \put(4280,527){\makebox(0,0){\strut{}$80$}}%
+      \put(5908,383){\makebox(0,0){\strut{}$80$}}%
       \csname LTb\endcsname%%
-      \put(4709,527){\makebox(0,0){\strut{}$90$}}%
+      \put(6574,383){\makebox(0,0){\strut{}$90$}}%
       \csname LTb\endcsname%%
-      \put(5137,527){\makebox(0,0){\strut{}$100$}}%
+      \put(7240,383){\makebox(0,0){\strut{}$100$}}%
     }%
     \gplgaddtomacro\gplfronttext{%
       \csname LTb\endcsname%%
-      \put(195,1813){\rotatebox{-270.00}{\makebox(0,0){\strut{}CV score}}}%
+      \put(142,1807){\rotatebox{-270.00}{\makebox(0,0){\strut{}CV score}}}%
       \csname LTb\endcsname%%
-      \put(3016,167){\makebox(0,0){\strut{}Length}}%
+      \put(3945,122){\makebox(0,0){\strut{}Length}}%
       \csname LTb\endcsname%%
-      \put(3016,3220){\makebox(0,0){\strut{}AA6082 (to maximum)}}%
+      \put(3945,3318){\makebox(0,0){\strut{}AA6082 (to maximum)}}%
     }%
     \gplbacktext
-    \put(0,0){\includegraphics[width={273.00bp},height={180.00bp}]{pareto_fronts_example}}%
+    \put(0,0){\includegraphics[width={374.00bp},height={180.00bp}]{pareto_fronts_example-inc}}%
     \gplfronttext
   \end{picture}%
 \endgroup
+\end{document}

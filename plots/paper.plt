@@ -1,7 +1,7 @@
 # all plots for the paper
 
-#set terminal tikz latex size 134mm,70mm color standalone 
-set terminal cairolatex eps size 5.2,3.2 color standalone
+#set terminal tikz latex size 134mm,70mm color standalone font ",8" 
+set terminal cairolatex eps size 5.2,3.2 color standalone font ",8"
 
 set datafile separator comma
 
@@ -74,7 +74,7 @@ unset multiplot
 ####################
 # Line charts Steel full
 ####################
-set terminal cairolatex eps size 5.2,1.6  color  standalone
+set terminal cairolatex eps size 5.2,1.6  color  standalone font ",8"
 
 set output "linechart-steel-abb2.tex"
 set multiplot layout 1,3 margins 0.1,0.99,0.25,0.99 spacing 0.05,0.1
@@ -137,7 +137,7 @@ unset multiplot
 ####################
 # Line charts Steel tomax
 ####################
-set terminal cairolatex eps size 5.2,1.6  color  standalone
+set terminal cairolatex eps size 5.2,1.6  color  standalone font ",8"
 
 unset logscale x
 
@@ -221,7 +221,7 @@ set ytics auto
 set xtics 0.1,0.1
 
 set ylabel "kf [MPa]"
-set xlabel "\\varphi"
+set xlabel "$\\varphi$"
 plot "< mlr --csv --from ../data/2019_Kolody/AA6082_all_temps_combined.csv filter '$phip == 0.001' then gap -g temp_setpoint | sed 's/,,,,,,,,//g'" using 8:9 with dots lc 2 notitle,\
      '' using 8:(f_aa_simple($7,$8,$3,log10($3))) with lines lc 1 lw 2 notitle
 
@@ -257,7 +257,7 @@ set ytics auto
 set xtics 0.1,0.1
 
 set ylabel "kf [MPa]"
-set xlabel "\\varphi"
+set xlabel "$\\varphi$"
 plot "< mlr --csv --from ../data/2019_Kolody/AA6082_all_temps_combined.csv filter '$phip == 0.001' then gap -g temp_setpoint | sed 's/,,,,,,,,//g'" using 8:9 with dots lc 2 title "data",\
      '' using 8:(f_aa_simple($7,$8,$3,log10($3))) with lines lc 1 lw 2 title "f(x)"
 
@@ -294,7 +294,7 @@ set ytics auto
 set xtics 0.1,0.1
 
 set ylabel "kf [MPa]"
-set xlabel "\\varphi"
+set xlabel "$\\varphi$"
 plot "< mlr --csv --from ../data/2019_Kolody/AA6082_all_temps_combined_tomax.csv filter '$phip == 0.001' then gap -g temp_setpoint | sed 's/,,,,,,,,//g'" using 8:9 with dots lc 2 notitle,\
      '' using 8:(f_aa_tomax_long_simple($7,$8,$3,log10($3))) with lines lc 1 lw 2 notitle
 
@@ -330,7 +330,7 @@ set ytics auto
 set xtics 0.1,0.1
 
 set ylabel "kf [MPa]"
-set xlabel "\\varphi"
+set xlabel "$\\varphi$"
 plot "< mlr --csv --from ../data/2019_Kolody/AA6082_all_temps_combined_tomax.csv filter '$phip == 0.001' then gap -g temp_setpoint | sed 's/,,,,,,,,//g'" using 8:9 with dots lc 2 title "data",\
      '' using 8:(f_aa_tomax_long_simple($7,$8,$3,log10($3))) with lines lc 1 lw 2 title "f(x)"
 
@@ -356,7 +356,7 @@ unset multiplot
 ####################
 # Line charts 2 rows
 ####################
-set terminal cairolatex eps size 5.2,3  color  standalone
+set terminal cairolatex eps size 5.2,3  color  standalone font ",8"
 set output "linechart-alu-2row.tex"
 set multiplot layout 2,3 margins 0.1,0.99,0.20,0.99 spacing 0.05,0.05
 # phip 0.001 0.01 0.1 1 10"
@@ -461,7 +461,7 @@ unset multiplot
 # Cross-validation Pareto fronts, all four
 ##################################
 
-set terminal cairolatex eps size 5.2,5  color  standalone
+set terminal cairolatex eps size 5.2,5  color  standalone font ",8"
 
 set output "pareto_fronts_all.tex"
 
@@ -562,7 +562,7 @@ unset multiplot
 # Cross-validation Pareto fronts, single
 ##################################
 
-set terminal cairolatex eps size 3.8,2.5  color  standalone
+set terminal cairolatex eps size 5.2,2.5  color  standalone font ",8"
 
 set output "pareto_fronts_example.tex"
 
